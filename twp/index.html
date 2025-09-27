@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Tester</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Typing Speed Tester</h1>
+            <p>Test your typing speed and accuracy!</p>
+        </header>
+
+        <div class="controls">
+            <div class="difficulty-selector">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy (Short)</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard (Long)</option>
+                </select>
+            </div>
+            <div class="settings">
+                <label class="toggle-label">
+                    <input type="checkbox" id="soundToggle" checked>
+                    <span class="toggle-slider"></span>
+                    Sound
+                </label>
+                <label class="toggle-label">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="toggle-slider"></span>
+                    Dark Mode
+                </label>
+            </div>
+            <button id="startBtn" class="btn">Start Test</button>
+        </div>
+
+        <div class="test-area" id="testArea" style="display: none;">
+            <div class="countdown" id="countdown" style="display: none;">
+                <h2 id="countdownText">3</h2>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-label">WPM:</span>
+                    <span class="stat-value" id="wpm">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Accuracy:</span>
+                    <span class="stat-value" id="accuracy">100%</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span class="stat-value" id="time">0s</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Streak:</span>
+                    <span class="stat-value" id="streak">0</span>
+                </div>
+            </div>
+
+            <div class="text-display">
+                <p id="textToType"></p>
+            </div>
+
+            <div class="input-area">
+                <textarea id="userInput" placeholder="Start typing here..." disabled></textarea>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span id="progressText">0%</span>
+            </div>
+        </div>
+
+        <div class="results" id="results" style="display: none;">
+            <h2>Test Complete!</h2>
+            <div class="result-stats">
+                <div class="result-stat">
+                    <span class="result-label">Words Per Minute:</span>
+                    <span class="result-value" id="finalWpm">0</span>
+                </div>
+                <div class="result-stat">
+                    <span class="result-label">Accuracy:</span>
+                    <span class="result-value" id="finalAccuracy">100%</span>
+                </div>
+                <div class="result-stat">
+                    <span class="result-label">Time Taken:</span>
+                    <span class="result-value" id="finalTime">0s</span>
+                </div>
+                <div class="result-stat">
+                    <span class="result-label">Characters:</span>
+                    <span class="result-value" id="charCount">0</span>
+                </div>
+            </div>
+            <button id="retryBtn" class="btn">Try Again</button>
+        </div>
+
+        <div class="tips-section">
+            <h3>💡 Quick Tips</h3>
+            <div class="tips-container">
+                <div class="tip" id="currentTip">
+                    <p>Keep your fingers on the home row keys: ASDF and JKL;</p>
+                </div>
+                <button id="nextTipBtn" class="tip-btn">Next Tip</button>
+            </div>
+        </div>
+
+        <div class="scoreboard" id="scoreboard">
+            <h3>Recent Scores</h3>
+            <div class="scores-list" id="scoresList">
+                <p class="no-scores">No scores yet. Complete a test to see your scores!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
